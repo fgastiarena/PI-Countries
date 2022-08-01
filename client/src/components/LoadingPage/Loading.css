@@ -1,0 +1,14 @@
+.loading-img {
+    width: 100vh;
+    height: auto;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

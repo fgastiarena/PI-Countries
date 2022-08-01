@@ -1,0 +1,8 @@
+.container-home {
+    background-image: url('../img/book-background.jpg');
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+}

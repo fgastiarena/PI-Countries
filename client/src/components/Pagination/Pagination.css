@@ -1,0 +1,33 @@
+.pagination-container {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+    overflow: hidden;
+    /* background-color: hsl(0, 5%, 76%); */
+    cursor: pointer;
+    display: grid;
+    align-content: center;
+}
+
+.list-items {
+    display: block;
+    color: rgb(17, 17, 17);
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    float: left;
+    box-sizing: border-box;
+    padding-top: 5px;
+}
+
+.list-items:hover {
+    background-color: hsla(59, 55%, 81%, 0.836);
+    border-radius: 5px;
+}
+
+.ulPag {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 104px;
+    padding-right: 100px;
+}
