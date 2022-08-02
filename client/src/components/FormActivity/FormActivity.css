@@ -1,3 +1,182 @@
 .countries-list {
     list-style-type: none;
 }
+
+.containerForm {
+    background-image: url('../img/book-background.jpg');
+    background-attachment: scroll;
+    background-repeat: no-repeat, repeat-y;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.form {
+    display: inline-block;
+    background-color: #cdd2d3c4;
+    border-radius: 10px;
+    box-shadow: -1rem 0 3rem rgb(71, 125, 129);
+    transition: 0.4s ease-out;
+    padding-bottom: 10px;
+    width: 500px;
+    height: auto;
+    margin: 100px;
+    /* justify-content: center; */
+    border: 1px solid black;
+}
+
+
+/* .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.labelTitle {
+    color: black;
+    margin-top: 30px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.input-form {
+    margin-top: 2rem;
+    width: 50vh;
+    background-color: rgba(238, 237, 231, 0.932);
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 1rem;
+    /* padding: 0.5rem; */
+    padding: 0.5rem;
+    color: black;
+    box-shadow: 0 0 1rem -0.1rem black;
+    outline: none;
+}
+
+.input-form:placeholder {
+    color: rgb(255, 255, 255);
+    text-shadow: 0.1rem 0.05rem 0 rgb(0, 0, 0);
+}
+
+.select-form {
+    margin-top: 2rem;
+    /* width: 100%; */
+    width: 50vh;
+    background-color: rgba(238, 237, 231, 0.863);
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 1rem;
+    padding: 0.5rem;
+    color: black;
+    box-shadow: 0 0 1rem -0.1rem black;
+    outline: none;
+}
+
+.select-form:hover {
+    cursor: pointer;
+}
+
+.countries {
+    cursor: default;
+    font-size: 17px;
+    display: grid;
+    align-content: space-around;
+    /* float: left; */
+    flex-direction: column;
+    /* justify-content: flex-end; */
+    align-items: center;
+    width: auto;
+    height: auto;
+    margin-top: 5px;
+    /* position: fixed; */
+    left: 70%;
+    /* background-color: #cdd2d3c4;
+    box-shadow: -1rem 0 3rem rgb(71, 125, 129);
+    backdrop-filter: blur(14px);
+    border-radius: 6px; */
+}
+
+
+/* .selectedTitle {
+    color: black;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    border-radius: 10px;
+} */
+
+.countries-list {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+    display: flex;
+    /* padding: 0; */
+    /* margin-bottom: 10%; */
+}
+
+.country-cont {
+    float: right;
+    width: 80%;
+    margin-top: 0px;
+    right: 0;
+    text-align: left;
+}
+
+.btn-cont {
+    display: inline;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    margin-right: 5px;
+}
+
+.form-error {
+    margin-top: 2px;
+    color: #d33924;
+    font-size: 15px;
+    text-shadow: 0.01rem 0.05rem 0 black;
+}
+
+.btn-form {
+    background-color: #fff;
+    border: 0.3px solid black;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    color: #0d172a;
+    cursor: pointer;
+    display: inline-block;
+    position: static;
+    font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    /* padding: 1rem 1.6rem; */
+    padding: 10px 15px;
+    text-align: center;
+    text-decoration: none #0d172a solid;
+    text-decoration-thickness: auto;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+    user-select: none;
+    touch-action: manipulation;
+    margin-bottom: 6px;
+    margin-top: 3px;
+}
+
+.btn-form:hover {
+    background-color: #1e293b;
+    color: #fff;
+}
+
+.buttons {
+    margin-top: 20px;
+    display: inline-block;
+}

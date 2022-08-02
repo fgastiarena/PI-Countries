@@ -8,6 +8,7 @@ import {
   GET_COUNTRIES_DETAILS,
   GET_ACTIVITIES,
   GET_COUNTRIES_NAMES,
+  SET_LOADING
 } from "../actions/actions.jsx";
 
 let initialState = {
@@ -15,7 +16,9 @@ let initialState = {
   allCountries: [],
   error: "",
   countryDetail: [],
-  activities: []
+  activities: [],
+  firstIndexPage: null,
+  isLoading: false
 };
 
 function rootReducer(state = initialState, action) {
@@ -25,6 +28,7 @@ function rootReducer(state = initialState, action) {
         ...state,
         countries: action.payload, //en mi state countries y allcoutries que son arrays vacíos en un principio, guardo todo lo que me indique mi action GET_ALL_COUNTRIES
         allCountries: action.payload,
+        firstIndexPage: null
       };
 
     case GET_ERROR:
@@ -49,7 +53,8 @@ function rootReducer(state = initialState, action) {
       case GET_COUNTRIES_NAMES:
         return {
           ...state,
-          countries: action.payload
+          countries: action.payload,
+          firstIndexPage: 0
         }
       
     case ORDER_BY_CONTINENT:
@@ -86,7 +91,6 @@ function rootReducer(state = initialState, action) {
       case ORDER_BY_ACTIVITIES:
         const countriesACtivities = state.allCountries;
         const activityFilter = action.payload === 'All' ? countriesACtivities : countriesACtivities.filter(e => 
-          // e.activities && e.activities.map(el => el.name).includes(action.payload)
           e.activities?.map(el => el.name).includes(action.payload)
          );
          return {
@@ -94,6 +98,11 @@ function rootReducer(state = initialState, action) {
            countries: activityFilter
          };
 
+      case SET_LOADING:
+        return {
+          ...state,
+          isLoading: action.payload.isLoading
+        }
 
     default:
       return state;

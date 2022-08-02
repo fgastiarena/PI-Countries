@@ -1,8 +1,62 @@
 .container-home {
-    background-image: url('../img/book-background.jpg');
-    background-attachment: scroll;
-    background-repeat: no-repeat;
+    background-image: url('../img/pins-background.jpg');
+    background-attachment: fixed, scroll;
+    background-repeat: no-repeat, repeat-y;
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
+}
+
+.btn-up {
+    background-color: #fff;
+    border: 0 solid #e2e8f0;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    color: #0d172a;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Basier circle", -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1;
+    /* padding: 1rem 1.6rem; */
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none #0d172a solid;
+    text-decoration-thickness: auto;
+    transition: all .1s cubic-bezier(.4, 0, .2, 1);
+    box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+    user-select: none;
+    touch-action: manipulation;
+    margin-bottom: 6px;
+}
+
+.btn-up:hover {
+    background-color: #1e293b;
+    color: #fff;
+}
+
+.filtros-home {
+    padding-top: 4px;
+}
+
+.miCiela {
+    /* font-size: 20px;
+    font-weight: bold; */
+    display: grid;
+    font-size: 35px;
+    letter-spacing: -1px;
+    color: #9e4f0f;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 0 #000;
+    margin: 10px 0 24px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.img-john {
+    margin-left: 34%;
+    height: 60vh;
+    width: 60vh;
 }

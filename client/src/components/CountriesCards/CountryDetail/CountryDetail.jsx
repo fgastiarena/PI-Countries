@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { getCountriesDetails } from "../../../actions/actions";
+import { Loading } from "../../LoadingPage/Loading";
 import Activity from "./Activity/Activity.jsx";
 import './CountryDetail.css';
 
@@ -10,6 +11,7 @@ export default function CountryDetail() {
   const dispatch = useDispatch();
   const countryDetail = useSelector((state) => state.countryDetail);
   let navigate = useNavigate();
+  const isLoading = useSelector((state) => state.isLoading);
 
   useEffect(() => {
     dispatch(getCountriesDetails(id));
@@ -25,62 +27,80 @@ export default function CountryDetail() {
     navigate("/create");
   }
 
+  useEffect(() => {
+    console.log('isLoading -> ', isLoading);
+  }, [isLoading])
+
   return (
-    <>
-      <div>
-        <h1>{countryDetail.name}</h1>
-        <h3>Id: {countryDetail.id}</h3>
+    <div className="container-detail">
+      <div className="cardDetail">
+      <div >
+      {isLoading ? (
+        <Loading/>
+      ) : (
+        <div >
+        <h1 className="titleName">{countryDetail.name}</h1>
+        <h3 className="countryId">ID: {countryDetail.id}</h3>
         <img
           className='flag'
           src={countryDetail.flags}
           alt={`flag from ${countryDetail.name}`}
         />
+        </div>
+            )}
+        </div>
+
+      <div className="text">
+        <h4 className="h4Tag"><em>・Continent・</em> 
+                      {countryDetail.continents}
+        </h4>
+        <h4 className="h4Tag"><em>・Capital・</em>
+                   {countryDetail.capital}
+        </h4>
+        <h4 className="h4Tag"><em>・Subregion・</em>
+        {countryDetail.subregion}
+        </h4>
+        <h4 className="h4Tag"> <em>・Area・ </em>
+                        {countryDetail.area}km²
+        </h4>
+        <h4 className="h4Tag"><em>・Population・ </em>
+                      {countryDetail.population}
+        </h4>
       </div>
 
-      <div>
-        <h4>Continent: {countryDetail.continents}</h4>
-        <h4>Capital: {countryDetail.capital}</h4>
-        <h4>Subregion: {countryDetail.subregion}</h4>
-        <h4>Area: {countryDetail.area}km²</h4>
-        <h4>Population: {countryDetail.population}</h4>
-      </div>
-
-      <div>
-        <h2>
-          <strong>Activities</strong>
+      <div className="titleName2">
+        <h2 >
+          Activities
         </h2>
       </div>
 
+        <div className="containerAct">
       {countryDetail.activities && countryDetail.activities.length > 0 ? (
-        countryDetail.activities.map((e) => {
+        countryDetail.activities.map((e) => { 
           return (
-            <Activity
-              key={e.id}
-              name={e.name}
-              difficulty={e.difficulty}
-              duration={e.duration}
-              season={e.season}
-            />
+              <Activity
+                key={e.id}
+                name={e.name}
+                difficulty={e.difficulty}
+                duration={e.duration}
+                season={e.season}
+              />
           );
         })
       ) : (
-        <p>This country has no activity for the moment. <strong>Create one! ↙</strong></p>
+        <p className="no-activity">This country has no activity for the moment !</p>
       )}
-
+      </div>
+      </div>
+   
       <div>
-        {/* <NavLink exact to='/countries'> */}
-        <button type="submit" onClick={(e) => handleClick(e)}>
+        <button className="btn-back" type="submit" onClick={(e) => handleClick(e)}>
           Back to Home
         </button>{" "}
-        {/**/}
-        {/* </NavLink> */}
-        {/* <NavLink exact to='/create'> */}
-        <button type="submit" onClick={(e) => handleCreate(e)}>
+        {/* <button className="btn-create" type="submit" onClick={(e) => handleCreate(e)}>
           Create Activity
-        </button>{" "}
-        {/**/}
-        {/* </NavLink> */}
+        </button>{" "} */}
       </div>
-    </>
+    </div>
   );
 }

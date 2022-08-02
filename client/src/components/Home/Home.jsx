@@ -6,12 +6,14 @@ import Filters from "../CountriesCards/Filters/Filters.jsx";
 import { Loading } from "../LoadingPage/Loading.jsx";
 import Nav from "../Nav/Nav.jsx";
 import Pagination from "../Pagination/Pagination.jsx";
-import './Home.css';
+import "./Home.css";
+import notFound from '../img/notFound.gif';
 
 export default function Home() {
   const dispatch = useDispatch(); //para ir despachando mis acciones cuando utilice esta const
   const allCountries = useSelector((state) => state.countries); //traigo todo lo que está en el estado de countries
-  const [loading, setLoading] = useState(true);
+  const stateFirstIndexPage = useSelector((state) => state.firstIndexPage);
+  const isLoading = useSelector((state) => state.isLoading);
   const [order, setOrder] = useState("");
   const error = useSelector((state) => state.error);
 
@@ -22,18 +24,26 @@ export default function Home() {
   const [indexFirstCountry, setIndexFirstCountry] = useState(0);
   const [indexLastCountry, setIndexLastCountry] = useState(countriesForFirstPage);
 
-  const countriesInActualPage = allCountries.slice( 
-    indexFirstCountry,
-    indexLastCountry
-  );
-
+  const [countriesInActualPage, setCountriesInActualPage] = useState([]);
+  
   const pagination = (e) => {
     const pageNumber = e.target.value; //onClick btn
-    setIndexFirstCountry(pageNumber === 1 ? 0 : (countriesForRestOfPages * (pageNumber - 1) - 1)); //si estoy en la pag 1 quiero mi FirstIndex en 0
-    setIndexLastCountry(pageNumber === 1 ? countriesForFirstPage :  ((countriesForRestOfPages * (pageNumber))) - 1);
+    const initialIndex = (pageNumber === 1 ? 0 : countriesForRestOfPages * (pageNumber - 1) - 1);
+
+    const finalIndex = (pageNumber === 1
+      ? countriesForFirstPage
+      : countriesForRestOfPages * pageNumber - 1);
+
+    setIndexFirstCountry(initialIndex);
+    setIndexLastCountry(finalIndex);
+
+    setCountriesInActualPage(allCountries.slice(initialIndex, finalIndex));
   };
 
-  
+  useEffect(() => {
+    setCountriesInActualPage(allCountries.slice(stateFirstIndexPage ?? indexFirstCountry, indexLastCountry));
+  }, [allCountries[0]])
+
   //traigo del estado los countries cuando se monta el componente
   useEffect(() => {
     dispatch(getAllCountries());
@@ -41,26 +51,31 @@ export default function Home() {
 
   return (
     <div className="container-home">
-      {loading === true ? (
-        <Loading setLoading={setLoading} />
+      {isLoading ? (
+        <Loading/>
       ) : (
         <div>
-          <h1>CountriesApp</h1>
+          {/* <h1>CountriesApp</h1> */}
+          <Nav />
         </div>
       )}
 
-      <Nav setOrder={setOrder}/>
-      <Filters setOrder={setOrder} />
+      <div className="filtros-home">
+        <Filters setOrder={setOrder} />
+      </div>
 
-      <Pagination
+      {allCountries.length === 0 && <div className="miCiela">Pues no mi ciela, busca bien !
+      <img className="img-john" src={notFound} alt='not found'/>
+      </div>}
+      {allCountries.length > 0 && 
+      <div>
+        <Pagination
         countriesForRestOfPages={countriesForRestOfPages}
-        allCountries={allCountries.length}  //necesito un valor numérico
+        allCountries={allCountries.length} //necesito un valor numérico
         pagination={pagination}
         countriesForFirstPage={countriesForFirstPage}
       />
-
       <div>
-
         {countriesInActualPage?.length !== 0 ? (
           countriesInActualPage.map((c) => {
             return (
@@ -80,11 +95,12 @@ export default function Home() {
 
         <div>
           <a href="#">
-            <button className="btn-up">Up</button>
+            <button className="btn-up">Up ↑</button>
           </a>
         </div>
       </div>
+      </div>
+      }
     </div>
   );
 }
-

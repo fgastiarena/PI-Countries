@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import getAllCountries, { getActivities, orderByActivities, orderByAlpha, orderByContinent, orderByPopulation } from "../../../actions/actions.jsx";
+import './Filters.css';
 
 export default function Filters({ setOrder }) {
 
@@ -9,6 +10,9 @@ export default function Filters({ setOrder }) {
   const allActivities = useSelector(state => state.activities);
 
   const chargeCountries = () => {
+    let selectList = document.querySelectorAll('.default-select');
+    selectList.forEach(select => select.value = 'DEFAULT')
+
     dispatch(getAllCountries());
   };
 
@@ -48,10 +52,9 @@ export default function Filters({ setOrder }) {
   //agregar logica al filtrado con redux desde actions.
   return (
 
-    <div>
-
-        <select  onChange={(e) => {handleActivities(e)}}>
-            <option value="All">All Activities</option>
+    <div className="container">
+        <select className="default-select" onChange={(e) => {handleActivities(e)}}>
+            <option value="DEFAULT">All Activities</option>
             {allActivities.map(e => {
                     return (
                         <option value={e.name} key={e.id} >{e.name}</option>
@@ -59,7 +62,7 @@ export default function Filters({ setOrder }) {
                 })}
         </select>
 
-      <select defaultValue={"DEFAULT"} onChange={(e) => {handleContinent(e)}}> 
+      <select id="select-continents" className="default-select" defaultValue={"DEFAULT"} onChange={(e) => {handleContinent(e)}}> 
         <option value="DEFAULT">All Continents</option>
         <option value="North America">North America</option>  {/* con el value puedo acceder a que valor tienen c/u de esas opctions para que cuando hago click se haga toda la lógica de la action */}
         <option value="South America">South America</option>
@@ -69,13 +72,13 @@ export default function Filters({ setOrder }) {
         <option value="Oceania">Oceania</option>
       </select>
 
-      <select defaultValue={"DEFAULT"} onChange={(e) => {handleAlpha(e)}}> 
+      <select className="default-select" defaultValue={"DEFAULT"} onChange={(e) => {handleAlpha(e)}}> 
         <option value="DEFAULT">Alphabetic</option>
         <option value="Asc">A-Z</option>
         <option value="Desc">Z-A</option>
       </select>
 
-      <select defaultValue={"DEFAULT"} onChange={(e) => {handlePopulation(e)}}> 
+      <select className="default-select" defaultValue={"DEFAULT"} onChange={(e) => {handlePopulation(e)}}> 
         <option value="DEFAULT">Population</option>
         <option value="AscPop">Ascending Population</option>
         <option value="DescPop">Descending Population</option>

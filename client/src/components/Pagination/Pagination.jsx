@@ -9,7 +9,7 @@ export default function Pagination({countriesForRestOfPages, allCountries, pagin
   }
 
   return (
-    <nav className='pagination-container'>
+  <nav className='pagination-container'>
       <ul className='ulPag'> 
         {pageNumbers &&
         pageNumbers.map(numberPage => (
@@ -18,6 +18,7 @@ export default function Pagination({countriesForRestOfPages, allCountries, pagin
           </li>
         ))}
       </ul>
-    </nav>
+  </nav>
   )
 }
+ 

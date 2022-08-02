@@ -9,18 +9,27 @@ export const ORDER_BY_ACTIVITIES = 'ORDER_BY_ACTIVITIES';
 export const GET_COUNTRIES_DETAILS = 'GET_COUNTRIES_DETAILS';
 export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 export const GET_COUNTRIES_NAMES = 'GET_COUNTRIES_NAMES';
+export const SET_LOADING = 'SET_LOADING';
 
 
 export default function getAllCountries() {
     return async function(dispatch){
         try {
+            dispatch({
+                type: SET_LOADING,
+                payload: {isLoading: true}
+            })
             let allCountries = await axios.get('http://localhost:3001/countries');
-            return dispatch({
+            dispatch({
                 type: GET_ALL_COUNTRIES,
                 payload: allCountries.data
             })
+            return dispatch({
+                type: SET_LOADING,
+                payload: {isLoading: false}
+            })
         } catch (error) {
-            console.log('Error en actions getAllCountries -> ' + error);
+            console.error('Error en actions getAllCountries -> ' + error);
         }
     }
 };
@@ -28,14 +37,22 @@ export default function getAllCountries() {
 export function getCountriesDetails(id) {
     return function(dispatch) {
         try {
+            dispatch({
+                type: SET_LOADING,
+                payload: {isLoading: true}
+            })
             axios.get(`http://localhost:3001/countries/${id}`)
-            .then(res => 
+            .then(res => {
                 dispatch({
                     type: GET_COUNTRIES_DETAILS,
                     payload: res.data
-                }));
+                });
+                dispatch({
+                    type: SET_LOADING,
+                    payload: {isLoading: false}
+                })});
         } catch (error) {
-            console.log('Error en actions getCountriesDetails -> ' + error);
+            console.error('Error en actions getCountriesDetails -> ' + error);
         }
     } 
 };
@@ -44,13 +61,21 @@ export function getCountriesDetails(id) {
 export function getCountriesNames(name){
     return async function(dispatch) {
         try {
+            dispatch({
+                type: SET_LOADING,
+                payload: {isLoading: true}
+            })
             const countriesJson = await axios.get(`http://localhost:3001/countries?name=${name}`);
-            return dispatch({
+            dispatch({
                 type: GET_COUNTRIES_NAMES,
                 payload: countriesJson.data
             })
+            return dispatch({
+                type: SET_LOADING,
+                payload: {isLoading: false}
+            })
         } catch (error) {
-            console.log('Error en actions getCountriesNames -> ' + error);
+            console.error('Error en actions getCountriesNames -> ' + error);
         }
     }
 };
@@ -62,7 +87,7 @@ export function postActivity(payload) {
            const newAct = await axios.post('http://localhost:3001/activity', payload);
            return newAct;
         } catch (error) {
-            console.log('Error en actions postActivity -> ' + error);
+            console.error('Error en actions postActivity -> ' + error);
         }
     }
 };
@@ -76,7 +101,7 @@ export function getActivities() {
                 payload: actJson.data
             })
         } catch (error) {
-            console.log('Error en actions getActivities -> ' + error);
+            console.error('Error en actions getActivities -> ' + error);
         }
     }
 };

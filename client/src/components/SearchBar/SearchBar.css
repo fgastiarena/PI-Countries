@@ -1,0 +1,26 @@
+.input-search {
+    border-radius: 5px 0 0 5px;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+    color: white;
+    padding: 5px;
+    color: black;
+    height: 40px;
+    width: 100%;
+}
+
+.btn-search {
+    border-radius: 0 5px 5px 0;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+    padding: 5px;
+    background-color: antiquewhite;
+    height: 40px;
+    width: 20%;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.wrap {
+    display: flex;
+}

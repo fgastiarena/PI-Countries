@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCountriesNames } from '../../actions/actions';
+import './SearchBar.css';
 
 export default function SearchBar() {
 
@@ -33,8 +34,10 @@ export default function SearchBar() {
     }
 
     return (
-        <div>
-            <input 
+        <div className='search-container'>
+            <div className='wrap'>
+            <input
+                className='input-search' 
                 onChange={e => handleChange(e)}
                 placeholder='Search Country...' 
                 type='text'
@@ -42,11 +45,14 @@ export default function SearchBar() {
                 onKeyDown={handleEnter}
             />
             <button
+                className='btn-search'
                 type='submit'
                 onClick={e => handleSubmit(e)}
             >
-                Search
+                🔍
             </button>
+                
+            </div>
         </div>
     )
 };

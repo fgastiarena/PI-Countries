@@ -1,18 +1,15 @@
 import React from 'react';
-import loading from "../img/loading.gif";
+import loading2 from '../img/loading2.gif';
 import './Loading.css';
 
-export function Loading({ setLoading }) {
+export function Loading() {
 
     return (
       <div className='loading-container'>
-        <img className="loading-img" src={loading} alt="Loading ..." />
+        <img className="loading-img" src={loading2} alt="Loading ..." />
         <div>
           <p>Loading ... just a second please </p>
         </div>
-        {setTimeout(() => {
-          setLoading(false);
-        }, 1000)}
       </div>
     );
     
