@@ -19,3 +19,4 @@ export default function CountriesCards({ id, name, continents, population, flags
     </>
   );
 }
+

@@ -64,7 +64,7 @@ export default function Home() {
         <Filters setOrder={setOrder} />
       </div>
 
-      {allCountries.length === 0 && <div className="miCiela">Pues no mi ciela, busca bien !
+      {allCountries.length === 0 && <div className="not-found-message-container"><p className="not-found-message">No hay coincidencias con el término ingresado.</p>
       <img className="img-john" src={notFound} alt='not found'/>
       </div>}
       {allCountries.length > 0 && 

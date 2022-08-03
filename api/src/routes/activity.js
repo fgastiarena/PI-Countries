@@ -44,7 +44,8 @@ const createActivitiesAndAddCountries = async(activity, countries = []) => {
             activities.addCountries(countryDB);
         }
     })
-}
+};
+
 
 
 
