@@ -1,4 +1,4 @@
-// /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
 const { expect } = require('chai');
 const session = require('supertest-session');
 const app = require('../../src/app.js');
@@ -7,10 +7,10 @@ const { Country, conn } = require('../../src/db.js');
 const agent = session(app);
 const country = {
     name: 'Argentina',
-    id: 'ARG',
-    flags: 'png',
-    continents: 'South America',
-    capital: 'Buenos Aires'
+    // id: 'ARG',
+    // flags: 'png',
+    // continents: 'South America',
+    // capital: 'Buenos Aires'
 };
 
 describe('Country routes', () => {

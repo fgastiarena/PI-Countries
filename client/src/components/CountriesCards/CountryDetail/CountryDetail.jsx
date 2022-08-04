@@ -22,11 +22,6 @@ export default function CountryDetail() {
     navigate("/home");
   }
 
-  function handleCreate(e) {
-    e.preventDefault();
-    navigate("/create");
-  }
-
   useEffect(() => {
     console.log('isLoading -> ', isLoading);
   }, [isLoading])
@@ -97,9 +92,6 @@ export default function CountryDetail() {
         <button className="btn-back" type="submit" onClick={(e) => handleClick(e)}>
           Back to Home
         </button>{" "}
-        {/* <button className="btn-create" type="submit" onClick={(e) => handleCreate(e)}>
-          Create Activity
-        </button>{" "} */}
       </div>
     </div>
   );

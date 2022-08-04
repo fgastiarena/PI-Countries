@@ -12,7 +12,7 @@ export default function SearchBar() {
     function handleChange(e){
         e.preventDefault();
         setName('');
-        setName(e.target.value);  //value del input
+        setName(e.target.value);
     };
 
     function handleEnter(e){
@@ -27,10 +27,6 @@ export default function SearchBar() {
         } else {
             alert('Enter at least three letters');
         } 
-
-        //  if(name !== setName(e.target.value)) {
-        //      alert('The entered Country does not exist!');
-        // } 
     }
 
     return (

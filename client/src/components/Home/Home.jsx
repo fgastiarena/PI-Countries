@@ -10,12 +10,13 @@ import "./Home.css";
 import notFound from '../img/notFound.gif';
 
 export default function Home() {
-  const dispatch = useDispatch(); //para ir despachando mis acciones cuando utilice esta const
-  const allCountries = useSelector((state) => state.countries); //traigo todo lo que está en el estado de countries
+  const dispatch = useDispatch(); 
+  const allCountries = useSelector((state) => state.countries); 
   const stateFirstIndexPage = useSelector((state) => state.firstIndexPage);
   const isLoading = useSelector((state) => state.isLoading);
   const [order, setOrder] = useState("");
   const error = useSelector((state) => state.error);
+
 
   //Pagination
   const countriesForFirstPage = 9;
@@ -27,12 +28,10 @@ export default function Home() {
   const [countriesInActualPage, setCountriesInActualPage] = useState([]);
   
   const pagination = (e) => {
-    const pageNumber = e.target.value; //onClick btn
-    const initialIndex = (pageNumber === 1 ? 0 : countriesForRestOfPages * (pageNumber - 1) - 1);
+    const pageNumber = e.target.value;
 
-    const finalIndex = (pageNumber === 1
-      ? countriesForFirstPage
-      : countriesForRestOfPages * pageNumber - 1);
+    const initialIndex = (pageNumber === 1 ? 0 : countriesForRestOfPages * (pageNumber - 1) - 1);
+    const finalIndex = (pageNumber === 1 ? countriesForFirstPage : countriesForRestOfPages * pageNumber - 1);
 
     setIndexFirstCountry(initialIndex);
     setIndexLastCountry(finalIndex);
@@ -44,7 +43,6 @@ export default function Home() {
     setCountriesInActualPage(allCountries.slice(stateFirstIndexPage ?? indexFirstCountry, indexLastCountry));
   }, [allCountries[0]])
 
-  //traigo del estado los countries cuando se monta el componente
   useEffect(() => {
     dispatch(getAllCountries());
   }, [dispatch]);
@@ -55,7 +53,6 @@ export default function Home() {
         <Loading/>
       ) : (
         <div>
-          {/* <h1>CountriesApp</h1> */}
           <Nav />
         </div>
       )}
@@ -71,7 +68,7 @@ export default function Home() {
       <div>
         <Pagination
         countriesForRestOfPages={countriesForRestOfPages}
-        allCountries={allCountries.length} //necesito un valor numérico
+        allCountries={allCountries.length} 
         pagination={pagination}
         countriesForFirstPage={countriesForFirstPage}
       />

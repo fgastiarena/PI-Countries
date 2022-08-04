@@ -33,12 +33,12 @@ const validationForm = (input) => {
 export default function FormActivity() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const initialState = { //lo que necesita mi post
+  const initialState = { 
     name: "",
     difficulty: "",
     duration: "",
     season: "",
-    countries: [], //para cargar más de un país
+    countries: [], 
   }
   const [input, setInput] = useState(initialState);
   const [errors, setErrors] = useState({});
@@ -192,7 +192,6 @@ export default function FormActivity() {
             <div>
             {input.countries.length > 0 && (
               <div className="countries">
-                {/* <h3 className="selectedTitle">Selected Countries</h3> */}
                 <ul className="countries-list">
                   {input.countries.map((c) => {
                     let name = countries.map((country) =>

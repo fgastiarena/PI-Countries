@@ -24,7 +24,7 @@ export default function Filters({ setOrder }) {
   const handleAlpha = (e) => {
     e.preventDefault();
     dispatch(orderByAlpha(e.target.value));
-    setOrder(`Order ${e.target.value}`);  //Cuando seteo esta pag, modifico el localState y renderizo //arranca vacío en el home y acá lo seteo ordenado de tal forma...
+    setOrder(`Order ${e.target.value}`); 
   };
 
   const handlePopulation = (e) => {
@@ -38,6 +38,7 @@ export default function Filters({ setOrder }) {
     dispatch(orderByActivities(e.target.value));
   };
 
+
   useEffect(() => {
     setOrder("Ordered");
   }, [handleAlpha, handlePopulation]);
@@ -49,7 +50,6 @@ export default function Filters({ setOrder }) {
 
 
 
-  //agregar logica al filtrado con redux desde actions.
   return (
 
     <div className="container">
@@ -64,7 +64,7 @@ export default function Filters({ setOrder }) {
 
       <select id="select-continents" className="default-select" defaultValue={"DEFAULT"} onChange={(e) => {handleContinent(e)}}> 
         <option value="DEFAULT">All Continents</option>
-        <option value="North America">North America</option>  {/* con el value puedo acceder a que valor tienen c/u de esas opctions para que cuando hago click se haga toda la lógica de la action */}
+        <option value="North America">North America</option>
         <option value="South America">South America</option>
         <option value="Africa">Africa</option>
         <option value="Europe">Europe</option>

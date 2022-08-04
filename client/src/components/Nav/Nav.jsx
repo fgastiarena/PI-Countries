@@ -18,7 +18,6 @@ export default function Nav() {
             <h1 className='nav-title'>Countries App</h1>
             <SearchBar/>
             </div>
-            {/* <button onClick={e => handleClick(e)}>Create Activity</button> */}
         </div>
     )
 };

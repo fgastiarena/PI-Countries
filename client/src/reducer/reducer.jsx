@@ -8,7 +8,7 @@ import {
   GET_COUNTRIES_DETAILS,
   GET_ACTIVITIES,
   GET_COUNTRIES_NAMES,
-  SET_LOADING
+  SET_LOADING,
 } from "../actions/actions.jsx";
 
 let initialState = {
@@ -26,7 +26,7 @@ function rootReducer(state = initialState, action) {
     case GET_ALL_COUNTRIES:
       return {
         ...state,
-        countries: action.payload, //en mi state countries y allcoutries que son arrays vacíos en un principio, guardo todo lo que me indique mi action GET_ALL_COUNTRIES
+        countries: action.payload, 
         allCountries: action.payload,
         firstIndexPage: null
       };
@@ -97,6 +97,7 @@ function rootReducer(state = initialState, action) {
            ...state,
            countries: activityFilter
          };
+
 
       case SET_LOADING:
         return {

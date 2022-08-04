@@ -4,9 +4,9 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('country', {
-        id: { //Si no especifico el id, sequelize por default me crea uno numérico que va a ir en aumento de a uno
+        id: {
             type: DataTypes.STRING(3),
-            allowNull: false, //para determinar que este campo si o si es requerido !!
+            allowNull: false,
             primaryKey: true
         },
         name: {

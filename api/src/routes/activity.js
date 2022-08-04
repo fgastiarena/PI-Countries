@@ -20,7 +20,6 @@ router.post('/', async(req, res) => {
 router.get('/', async(req, res) => {
     try {
         const activities = await Activity.findAll({
-            // include: { model: Country, attributes: ["id", "name"] },
             include: [Country],
             attributes: ["id", "name"]
         });
@@ -39,7 +38,7 @@ const createActivitiesAndAddCountries = async(activity, countries = []) => {
     });
     countries.forEach(async country => {
 
-        let countryDB = await Country.findAll({ where: { id: country } }) //busco info en una tabla de la db y creo una variable
+        let countryDB = await Country.findAll({ where: { id: country } })
         if (countryDB) {
             activities.addCountries(countryDB);
         }

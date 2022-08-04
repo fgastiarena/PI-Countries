@@ -14,7 +14,7 @@ export default function Pagination({countriesForRestOfPages, allCountries, pagin
         {pageNumbers &&
         pageNumbers.map(numberPage => (
           <li className='list-items'  onClick={pagination} key={numberPage} value={numberPage}>
-           {numberPage} {/*c/u de las pag que necesito para renderizar todos mis países*/}           
+           {numberPage}        
           </li>
         ))}
       </ul>
