@@ -1,24 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.ffe5f51e.chunk.css",
-    "main.js": "/static/js/main.41a2e334.chunk.js",
-    "main.js.map": "/static/js/main.41a2e334.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.cffce944.js",
-    "runtime-main.js.map": "/static/js/runtime-main.cffce944.js.map",
-    "static/js/2.784f6faf.chunk.js": "/static/js/2.784f6faf.chunk.js",
-    "static/js/2.784f6faf.chunk.js.map": "/static/js/2.784f6faf.chunk.js.map",
-    "static/js/3.ac701987.chunk.js": "/static/js/3.ac701987.chunk.js",
-    "static/js/3.ac701987.chunk.js.map": "/static/js/3.ac701987.chunk.js.map",
+    "main.css": "/static/css/main.cfe2ba42.chunk.css",
+    "main.js": "/static/js/main.3824b2b2.chunk.js",
+    "main.js.map": "/static/js/main.3824b2b2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.40b2ef27.js",
+    "runtime-main.js.map": "/static/js/runtime-main.40b2ef27.js.map",
+    "static/js/2.96bd6ca5.chunk.js": "/static/js/2.96bd6ca5.chunk.js",
+    "static/js/2.96bd6ca5.chunk.js.map": "/static/js/2.96bd6ca5.chunk.js.map",
+    "static/js/3.6c39bc9d.chunk.js": "/static/js/3.6c39bc9d.chunk.js",
+    "static/js/3.6c39bc9d.chunk.js.map": "/static/js/3.6c39bc9d.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.ffe5f51e.chunk.css.map": "/static/css/main.ffe5f51e.chunk.css.map",
-    "static/js/2.784f6faf.chunk.js.LICENSE.txt": "/static/js/2.784f6faf.chunk.js.LICENSE.txt",
-    "static/media/LandingPage.css": "/static/media/first-backgroud-img.98b426bb.jpeg",
-    "static/media/loading.95f0ee82.gif": "/static/media/loading.95f0ee82.gif"
+    "static/css/main.cfe2ba42.chunk.css.map": "/static/css/main.cfe2ba42.chunk.css.map",
+    "static/js/2.96bd6ca5.chunk.js.LICENSE.txt": "/static/js/2.96bd6ca5.chunk.js.LICENSE.txt",
+    "static/media/FormActivity.css": "/static/media/book-background.6cc4f247.jpg",
+    "static/media/LandingPage.css": "/static/media/first-backgroud-img.0dfe5c78.jpg",
+    "static/media/loading2.4b8cf133.gif": "/static/media/loading2.4b8cf133.gif",
+    "static/media/notFound.3d5550c2.gif": "/static/media/notFound.3d5550c2.gif",
+    "static/media/Home.css": "/static/media/pins-background.d4c5702f.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.cffce944.js",
-    "static/js/2.784f6faf.chunk.js",
-    "static/css/main.ffe5f51e.chunk.css",
-    "static/js/main.41a2e334.chunk.js"
+    "static/js/runtime-main.40b2ef27.js",
+    "static/js/2.96bd6ca5.chunk.js",
+    "static/css/main.cfe2ba42.chunk.css",
+    "static/js/main.3824b2b2.chunk.js"
   ]
 }
